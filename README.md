@@ -1,20 +1,75 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+# **Next.js Styled Boilerplate - Resumen del Proyecto**
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## **Framework principal**
+- **Next.js (15.0.3)**:
+    - Soporte para SSR, SSG, ISR y rutas dinámicas.
+- **React (18.3.1)** y **React DOM (18.3.1)**.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+---
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## **Estilización**
+- **styled-components (6.1.13)**:
+    - CSS-in-JS con soporte para SSR.
+- **babel-plugin-styled-components (2.1.4)**:
+    - Optimización para SSR.
+
+---
+
+## **Internacionalización (i18n)**
+- **i18next (24.0.2)**:
+    - Manejo de múltiples idiomas.
+- **react-i18next (15.1.2)**:
+    - Integración con React.
+- **i18next-browser-languagedetector (8.0.0)**:
+    - Detecta idioma del navegador.
+- **i18next-http-backend (3.0.1)**:
+    - Carga traducciones desde archivos JSON.
+
+---
+
+## **Gestión de formularios**
+- **react-hook-form (7.53.2)**:
+    - Manejo eficiente y ligero de formularios.
+
+---
+
+## **Tipado estático**
+- **TypeScript (5.x)**:
+    - Mejora la robustez del código.
+- **@types/node (20)**, **@types/react (18)**, **@types/react-dom (18)**.
+
+---
+
+## **Control de calidad del código**
+- **ESLint (9.15.0)**:
+    - Configuración personalizada con reglas estrictas.
+- **Configuración de plugins**:
+    - `react`: Buenas prácticas para React.
+    - `jsx-a11y`: Accesibilidad mejorada.
+    - `import`: Gestión organizada de importaciones.
+- **Reglas estrictas agregadas**:
+    - Ordenación de importaciones con `import/order`.
+    - Prohibición de `var` y preferencia por funciones flecha.
+    - Validación de props y uso de `jsx-a11y` para accesibilidad.
+
+---
+
+## **Formatos**
+- **Prettier (3.4.1)**:
+    - Formateo consistente del código.
+    - Integrado con ESLint para evitar conflictos.
+
+---
+
+## **Scripts disponibles**
+- **dev**: Inicia el servidor de desarrollo.
+- **build**: Construye la aplicación optimizada para producción.
+- **start**: Sirve la aplicación en producción.
+- **lint**: Valida el código con ESLint.
+- **format**: Formatea el código con Prettier.
+
+---
+
+## **Aclaración**
+Aunque no se utiliza `eslint-config-airbnb` directamente, se han integrado las reglas esenciales de Airbnb a través de configuraciones personalizadas en ESLint. Esto garantiza que las mejores prácticas de Airbnb estén presentes sin conflictos con otras herramientas como Next.js o Prettier.
