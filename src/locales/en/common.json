@@ -1,0 +1,9 @@
+{
+  "title": "Demo Form",
+  "name": "Name",
+  "email": "Email",
+  "submit": "Submit",
+  "nameError": "Name is required",
+  "emailError": "A valid email is required",
+  "successMessage": "Form submitted successfully"
+}
