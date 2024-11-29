@@ -1,9 +1,0 @@
-{
-  "title": "Formulario Demo",
-  "name": "Nombre",
-  "email": "Correo Electrónico",
-  "submit": "Enviar",
-  "nameError": "El nombre es obligatorio",
-  "emailError": "Se requiere un correo válido",
-  "successMessage": "Formulario enviado con éxito"
-}

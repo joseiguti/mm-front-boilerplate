@@ -1,7 +1,8 @@
-const nextIntlConfig = {
-    locales: ["en", "es"],
-    defaultLocale: "en",
-    timeZone: "UTC",
-};
+import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
 
-export default nextIntlConfig;
+const withNextIntl = createNextIntlPlugin();
+
+const nextConfig: NextConfig = {};
+
+export default withNextIntl(nextConfig);
