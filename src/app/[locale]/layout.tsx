@@ -11,19 +11,15 @@ export default async function LocaleLayout({
                                                params
                                            }: {
     children: ReactNode;
-    params: Promise<{ locale: string }>; // Marca params como asíncrono
+    params: Promise<{ locale: string }>;
 }) {
-    // Espera explícitamente a params.locale
-    const { locale } = await params; // Desestructura params correctamente
-    const messages = await getMessages(locale); // Obtén los mensajes del idioma
+
+    const { locale } = await params;
+    const messages = await getMessages(locale);
 
     return (
-        <html lang={locale}>
-        <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
             {children}
         </NextIntlClientProvider>
-        </body>
-        </html>
     );
 }
