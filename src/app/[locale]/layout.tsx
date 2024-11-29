@@ -1,17 +1,12 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { ReactNode } from 'react';
+import { NextIntlClientProvider } from "next-intl";
 
-// Obtén los mensajes de traducción para el idioma actual
 async function getMessages(locale: string) {
     return (await import(`../../../messages/${locale}.json`)).default;
 }
 
-export default async function LocaleLayout({
-                                               children,
-                                               params
-                                           }: {
-    children: ReactNode;
-    params: Promise<{ locale: string }>;
+export default async function LocaleLayout({children,params}: {
+    children: React.ReactNode;
+    params: { locale: string };
 }) {
 
     const { locale } = await params;

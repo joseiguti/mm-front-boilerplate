@@ -1,21 +1,26 @@
 "use client";
 
+import React from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../styles/GlobalStyles";
 import { theme } from "../styles/theme";
 
-export default function RootLayout({
-                                       children,
-                                   }: {
+export const LocaleContext = React.createContext<string>("en");
+
+export default function RootLayout({children}: {
     children: React.ReactNode;
 }) {
+    const locale = "en";
+
     return (
-        <html lang="en">
+        <html lang={locale}>
         <body>
-        <ThemeProvider theme={theme}>
-            <GlobalStyles />
-            {children}
-        </ThemeProvider>
+        <LocaleContext.Provider value={locale}>
+            <ThemeProvider theme={theme}>
+                <GlobalStyles />
+                {children}
+            </ThemeProvider>
+        </LocaleContext.Provider>
         </body>
         </html>
     );
