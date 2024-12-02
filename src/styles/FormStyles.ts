@@ -20,8 +20,21 @@ export const FormContainer = styled.div`
   }
 `;
 
+export const FieldContainer = styled.div`
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 480px) {
+    margin-bottom: 10px;
+  }
+`;
+
 export const Label = styled.label`
   font-size: ${({ theme }) => theme.fontSizes.medium};
+  padding: ${({ theme }) => theme.spacing(1)};
   font-weight: bold;
   color: ${({ theme }) => theme.colors.text};
 

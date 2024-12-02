@@ -1,7 +1,7 @@
-import withNextIntl from 'next-intl/plugin';
+import withNextIntl from "next-intl/plugin";
 
 const nextConfig = {
-    reactStrictMode: true
+  reactStrictMode: true,
 };
 
 export default withNextIntl()(nextConfig);
