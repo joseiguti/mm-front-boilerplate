@@ -4,7 +4,7 @@ async function getMessages(locale: string) {
     return (await import(`../../../messages/${locale}.json`)).default;
 }
 
-export default async function LocaleLayout({children,params}: {
+export default async function LocaleLayout({children, params}: {
     children: React.ReactNode;
     params: { locale: string };
 }) {

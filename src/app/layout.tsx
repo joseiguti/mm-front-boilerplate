@@ -14,7 +14,7 @@ export default function RootLayout({children}: {
 
     return (
         <html lang={locale}>
-        <body>
+        <body>{locale}
         <LocaleContext.Provider value={locale}>
             <ThemeProvider theme={theme}>
                 <GlobalStyles />
