@@ -1,5 +1,14 @@
 {
   "Home": {
     "title": "Formulario Demo"
+  },
+  "DemoForm": {
+    "title": "Formulario de Demo",
+    "nameLabel": "Nombre",
+    "nameRequired": "El nombre es obligatorio",
+    "emailLabel": "Correo Electrónico",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "Dirección de correo no válida",
+    "submitButton": "Enviar"
   }
 }

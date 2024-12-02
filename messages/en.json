@@ -1,5 +1,14 @@
 {
   "Home": {
     "title": "Demo Form"
+  },
+  "DemoForm": {
+    "title": "Demo Form",
+    "nameLabel": "Name",
+    "nameRequired": "Name is required",
+    "emailLabel": "Email",
+    "emailRequired": "Email is required",
+    "emailInvalid": "Invalid email address",
+    "submitButton": "Submit"
   }
 }

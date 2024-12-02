@@ -1,44 +1,25 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
-const LanguageSwitcher = () => {
+const LanguageSwitcher = ({ currentLocale }: { currentLocale: string }) => {
     const router = useRouter();
+    const pathname = usePathname();
 
-    const changeLanguage = (lang: string) => {
-        router.push(`/${lang}/demo`);
+    const changeLanguage = (locale: string) => {
+
+        const newPath = pathname.replace(`/${currentLocale}`, `/${locale}`);
+        router.push(newPath);
     };
 
     return (
-        <div style={{ textAlign: "center", margin: "10px" }}>
-            <button
-                onClick={() => changeLanguage("en")}
-                style={{
-                    margin: "5px",
-                    padding: "10px",
-                    border: "none",
-                    backgroundColor: "#0070f3",
-                    color: "white",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                }}
-            >
-                English
-            </button>
-            <button
-                onClick={() => changeLanguage("es")}
-                style={{
-                    margin: "5px",
-                    padding: "10px",
-                    border: "none",
-                    backgroundColor: "#0070f3",
-                    color: "white",
-                    borderRadius: "5px",
-                    cursor: "pointer",
-                }}
-            >
-                Español
-            </button>
+        <div>
+            <a onClick={() => changeLanguage("en")}
+               style={{ cursor: "pointer", marginRight: "5px" }}
+            >English</a>/
+            <a onClick={() => changeLanguage("es")}
+               style={{ cursor: "pointer", marginRight: "5px" }}
+            >Español</a>
         </div>
     );
 };

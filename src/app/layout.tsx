@@ -2,8 +2,8 @@
 
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "../styles/GlobalStyles";
-import { theme } from "../styles/theme";
+import { GlobalStyles } from "@/styles/GlobalStyles";
+import { theme } from "@/styles/theme";
 
 export const LocaleContext = React.createContext<string>("en");
 
@@ -14,7 +14,7 @@ export default function RootLayout({children}: {
 
     return (
         <html lang={locale}>
-        <body>{locale}
+        <body>
         <LocaleContext.Provider value={locale}>
             <ThemeProvider theme={theme}>
                 <GlobalStyles />

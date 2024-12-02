@@ -1,8 +1,6 @@
 import { routing } from "./i18n/routing";
 import { NextResponse } from "next/server";
 
-console.log('Hola')
-
 export default async function middleware(request: Request) {
     const { locales, defaultLocale } = routing;
     const url = new URL(request.url);
@@ -26,5 +24,5 @@ export default async function middleware(request: Request) {
 }
 
 export const config = {
-    matcher: ["/((?!api|_next|static|favicon.ico).*)"], // Aplica a todas las rutas excepto estáticas y APIs
+    matcher: ["/((?!api|_next|static|favicon.ico).*)"],
 };
