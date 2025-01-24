@@ -1,15 +1,27 @@
 export const theme = {
   colors: {
-    primary: "#0070f3",
-    secondary: "#ff4081",
-    background: "#f9f9f9",
-    text: "#333",
-    error: "red",
+    primary: '#002F7A',
+    secondary: '#FFFFFF',
+    hover: '#AAAAAA',
+    background: '#f4f4f4',
+    secondaryBackground: '#003893',
   },
-  spacing: (factor: number) => `${8 * factor}px`,
-  fontSizes: {
-    small: "14px",
-    medium: "16px",
-    large: "20px",
+  fonts: {
+    size: {
+      small: '12px',
+    },
+    primary: 'Arial, sans-serif',
+  },
+  icons: {
+    size: '20px',
+  },
+  borderRadius: {
+    small: '8px',
+    medium: '16px',
+  },
+  spacing: {
+    xsmall: '4px',
+    small: '8px',
+    medium: '16px',
   },
 };
