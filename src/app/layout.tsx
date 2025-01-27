@@ -19,18 +19,13 @@ export default function RootLayout({
     const locale = "en";
 
     const customConfig = {
-        logo: 'https://example.com/my-logo.png',
+        logo: 'https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Colombia.svg',
         items: [
             {
-                label: 'Home',
+                label: 'Product',
                 icon: 'HomeIcon',
                 link: '/',
-                children: [
-                    { label: 'Sub Home 1', link: '/sub-home-1' },
-                    { label: 'Sub Home 2', link: '/sub-home-2' },
-                ],
             },
-            { label: 'Settings', icon: 'SettingsIcon', link: '/settings' },
         ],
     };
     const [isCollapsed, setIsCollapsed] = useState(false);
