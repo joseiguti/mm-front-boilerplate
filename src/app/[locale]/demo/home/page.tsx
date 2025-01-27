@@ -2,8 +2,13 @@
 
 // @ts-ignore
 import { Form, Grid } from 'web-monorepo-ui-components';
+import React, { useState } from 'react';
 
 export default function DemoHomePage() {
+    const [data, setData] = useState([
+        { id: 1, name: 'Apple', category: 'Fruit' },
+        { id: 2, name: 'Carrot', category: 'Vegetable' },
+    ]);
 
     const buttons = [
         {
@@ -43,10 +48,19 @@ export default function DemoHomePage() {
         },
     ];
 
-    const initialData = [
-        { id: 1, name: 'Apple', category: 'Fruit' },
-        { id: 2, name: 'Carrot', category: 'Vegetable' },
-    ];
+    const handleFormSubmit = (values) => {
+        // Generate a unique ID for the new product
+        const newId = data.length > 0 ? Math.max(...data.map(item => item.id)) + 1 : 1;
+
+        // Add the new product to the list
+        const newProduct = {
+            id: newId,
+            name: values.product,
+            category: values.category,
+        };
+
+        setData([...data, newProduct]);
+    };
 
     return (
         <div>
@@ -67,16 +81,14 @@ export default function DemoHomePage() {
                             label: 'Category',
                             placeholder: 'Choose an option...',
                             value: '',
-                            isInvalid: true,
                             isRequired: true,
-                            errorMessage: 'This field is required.',
                             options: [
-                                { value: '1', label: 'Fruit' },
-                                { value: '2', label: 'Vegetable' },
-                                { value: '3', label: 'Grain' },
-                                { value: '4', label: 'Dairy' },
-                                { value: '5', label: 'Meat' },
-                                { value: '6', label: 'Seafood' },
+                                { value: 'Fruit', label: 'Fruit' },
+                                { value: 'Vegetable', label: 'Vegetable' },
+                                { value: 'Grain', label: 'Grain' },
+                                { value: 'Dairy', label: 'Dairy' },
+                                { value: 'Meat', label: 'Meat' },
+                                { value: 'Seafood', label: 'Seafood' },
                             ],
                         },
                     ],
@@ -84,7 +96,7 @@ export default function DemoHomePage() {
                         type: 'button',
                         label: 'Save',
                         iconName: 'RiSave3Line',
-                        isSubmit: true
+                        isSubmit: true,
                     },
                     {
                         type: 'button',
@@ -99,15 +111,14 @@ export default function DemoHomePage() {
                         onClick: () => console.log('Form canceled'),
                     },
                 ]}
-                onSubmit={(values) => console.log('Form submitted:', values)}
+                onSubmit={handleFormSubmit}
             />
             <Grid
                 headers={headers.concat(actions)}
-                data={initialData}
+                data={data}
                 pagination
                 itemsPerPage={5}
             />
-
         </div>
     );
 }
