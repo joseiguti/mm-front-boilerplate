@@ -1,14 +1,50 @@
 "use client";
 
 // @ts-ignore
-import { Form, Grid } from 'web-monorepo-ui-components';
-import React, { useState } from 'react';
+import { Form, Grid, Notifications, Dialog } from 'web-monorepo-ui-components';
+import React, { useState, useRef } from 'react';
+import 'toastify-js/src/toastify.css';
 
 export default function DemoHomePage() {
+
+    const dialogButtons = (setDialogOpen) => [
+        {
+            label: 'Cancel',
+            iconName: 'RiChatDeleteLine',
+            size: 'sm',
+            theme: { colors: { buttonBg: 'red.500', buttonText: 'white' } },
+            onClick: () => {
+                if (setDialogOpen) setDialogOpen(false);
+            },
+        },
+        {
+            label: 'Yes',
+            iconName: 'RiChatCheckLine',
+            size: 'sm',
+            theme: { colors: { buttonBg: 'green.500', buttonText: 'white' } },
+            onClick: () => {
+                if (setDialogOpen) setDialogOpen(false);
+            },
+        },
+    ];
+
+    const handleCloseDialog = () => {
+        console.log('Dialog closed');
+        setDialogOpen(false);
+    };
+
+    const [isDialogOpen, setDialogOpen] = useState(false);
+
+    const handleOpenDialog = () => {
+        setDialogOpen(true);
+    };
+
     const [data, setData] = useState([
         { id: 1, name: 'Apple', category: 'Fruit' },
         { id: 2, name: 'Carrot', category: 'Vegetable' },
     ]);
+
+    const formRef = useRef(null);
 
     const buttons = [
         {
@@ -19,7 +55,7 @@ export default function DemoHomePage() {
         {
             iconName: 'RiDeleteBinLine',
             theme: { colors: { buttonBg: 'red.500', buttonText: 'white' } },
-            onClick: (row) => alert(`Delete clicked for ${row.name}`),
+            onClick: handleOpenDialog,
         },
     ];
 
@@ -60,10 +96,27 @@ export default function DemoHomePage() {
         };
 
         setData([...data, newProduct]);
+
+        const { notify } = Notifications({
+            message: 'Product added successfully',
+            type: 'success',
+            duration: 5000,
+            position: 'top-right',
+        });
+
+        notify();
     };
+
 
     return (
         <div>
+            <Dialog
+                isOpen={isDialogOpen}
+                onClose={handleCloseDialog}
+                title="Delete product"
+                body={<p>Are sure you want to delete this product?</p>}
+                buttons={dialogButtons(setDialogOpen)}
+            />
             <h1>Products</h1>
             <Form
                 fields={[
@@ -108,7 +161,7 @@ export default function DemoHomePage() {
                                 buttonText: 'white',
                             },
                         },
-                        onClick: () => console.log('Form canceled'),
+                        isReset: true,
                     },
                 ]}
                 onSubmit={handleFormSubmit}
