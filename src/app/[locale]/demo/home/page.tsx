@@ -6,38 +6,8 @@ import React, { useState, useRef } from 'react';
 import 'toastify-js/src/toastify.css';
 
 export default function DemoHomePage() {
-
-    const dialogButtons = (setDialogOpen) => [
-        {
-            label: 'Cancel',
-            iconName: 'RiChatDeleteLine',
-            size: 'sm',
-            theme: { colors: { buttonBg: 'red.500', buttonText: 'white' } },
-            onClick: () => {
-                if (setDialogOpen) setDialogOpen(false);
-            },
-        },
-        {
-            label: 'Yes',
-            iconName: 'RiChatCheckLine',
-            size: 'sm',
-            theme: { colors: { buttonBg: 'green.500', buttonText: 'white' } },
-            onClick: () => {
-                if (setDialogOpen) setDialogOpen(false);
-            },
-        },
-    ];
-
-    const handleCloseDialog = () => {
-        console.log('Dialog closed');
-        setDialogOpen(false);
-    };
-
     const [isDialogOpen, setDialogOpen] = useState(false);
-
-    const handleOpenDialog = () => {
-        setDialogOpen(true);
-    };
+    const [selectedProduct, setSelectedProduct] = useState(null);
 
     const [data, setData] = useState([
         { id: 1, name: 'Apple', category: 'Fruit' },
@@ -45,6 +15,41 @@ export default function DemoHomePage() {
     ]);
 
     const formRef = useRef(null);
+
+    const dialogButtons = () => [
+        {
+            label: 'Cancel',
+            iconName: 'RiChatDeleteLine',
+            size: 'sm',
+            theme: { colors: { buttonBg: 'red.500', buttonText: 'white' } },
+            onClick: () => setDialogOpen(false),
+        },
+        {
+            label: 'Yes',
+            iconName: 'RiChatCheckLine',
+            size: 'sm',
+            theme: { colors: { buttonBg: 'green.500', buttonText: 'white' } },
+            onClick: () => {
+                if (selectedProduct) {
+                    setData((prevData) => prevData.filter((item) => item.id !== selectedProduct.id));
+                    const { notify } = Notifications({
+                        message: `${selectedProduct.name} was deleted successfully`,
+                        type: 'success',
+                        duration: 5000,
+                        position: 'top-right',
+                    });
+                    notify();
+                    setDialogOpen(false);
+                    setSelectedProduct(null);
+                }
+            },
+        },
+    ];
+
+    const handleOpenDialog = (product) => {
+        setSelectedProduct(product);
+        setDialogOpen(true);
+    };
 
     const buttons = [
         {
@@ -85,10 +90,8 @@ export default function DemoHomePage() {
     ];
 
     const handleFormSubmit = (values) => {
-        // Generate a unique ID for the new product
-        const newId = data.length > 0 ? Math.max(...data.map(item => item.id)) + 1 : 1;
+        const newId = data.length > 0 ? Math.max(...data.map((item) => item.id)) + 1 : 1;
 
-        // Add the new product to the list
         const newProduct = {
             id: newId,
             name: values.product,
@@ -107,15 +110,20 @@ export default function DemoHomePage() {
         notify();
     };
 
-
     return (
         <div>
             <Dialog
                 isOpen={isDialogOpen}
-                onClose={handleCloseDialog}
+                onClose={() => setDialogOpen(false)}
                 title="Delete product"
-                body={<p>Are sure you want to delete this product?</p>}
-                buttons={dialogButtons(setDialogOpen)}
+                body={
+                    selectedProduct ? (
+                        <p>Are you sure you want to delete <strong>{selectedProduct.name}</strong>?</p>
+                    ) : (
+                        <p>Are you sure you want to delete this product?</p>
+                    )
+                }
+                buttons={dialogButtons()}
             />
             <h1>Products</h1>
             <Form
