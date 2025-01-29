@@ -8,7 +8,9 @@ export const theme = {
   },
   fonts: {
     size: {
-      small: '12px',
+      small: "14px",
+      medium: "16px",
+      large: "20px",
     },
     primary: 'Arial, sans-serif',
   },

@@ -33,20 +33,20 @@ export const FieldContainer = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: ${({ theme }) => theme.fontSizes.medium};
-  padding: ${({ theme }) => theme.spacing(1)};
+  font-size: ${({ theme }) => theme.fonts.size.medium};
+  padding: ${({ theme }) => theme.spacing.medium};
   font-weight: bold;
   color: ${({ theme }) => theme.colors.text};
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fontSizes.small};
+    font-size: ${({ theme }) => theme.fonts.size.small};
   }
 `;
 
 export const Input = styled.input`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing(1)};
-  font-size: ${({ theme }) => theme.fontSizes.medium};
+  padding: ${({ theme }) => theme.spacing.medium};
+  font-size: ${({ theme }) => theme.fonts.size.medium};
   border: 1px solid #ccc;
   border-radius: 4px;
 
@@ -57,20 +57,20 @@ export const Input = styled.input`
   }
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fontSizes.small};
-    padding: ${({ theme }) => theme.spacing(0.5)};
+    font-size: ${({ theme }) => theme.fonts.size.small};
+    padding: ${({ theme }) => theme.spacing.small};
   }
 `;
 
 export const ErrorMessage = styled.p`
   color: ${({ theme }) => theme.colors.error};
-  font-size: ${({ theme }) => theme.fontSizes.small};
+  font-size: ${({ theme }) => theme.fonts.size.small};
 `;
 
 export const SubmitButton = styled.button`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing(2)};
-  font-size: ${({ theme }) => theme.fontSizes.medium};
+  padding: ${({ theme }) => theme.spacing.medium};
+  font-size: ${({ theme }) => theme.fonts.size.medium};
   background-color: ${({ theme }) => theme.colors.primary};
   color: white;
   border: none;
@@ -82,7 +82,7 @@ export const SubmitButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    padding: ${({ theme }) => theme.spacing(1)};
-    font-size: ${({ theme }) => theme.fontSizes.small};
+    padding: ${({ theme }) => theme.spacing.small};
+    font-size: ${({ theme }) => theme.fonts.size.small};
   }
 `;
