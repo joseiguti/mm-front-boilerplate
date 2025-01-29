@@ -46,7 +46,7 @@ export default function DemoFormPage({
   };
 
   if (!locale) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   return (

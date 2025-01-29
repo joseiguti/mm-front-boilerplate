@@ -36,7 +36,7 @@ export default function DemoHomePage({ params }: { params: Promise<{ locale: str
     };
 
     if (!locale) {
-        return <div>Loading...</div>;
+        return <div></div>;
     }
 
     return (
