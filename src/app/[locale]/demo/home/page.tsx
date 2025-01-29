@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Grid } from 'web-monorepo-ui-components';
 import { DeleteDialog, EditDialog } from './components/Dialogs';
-import formConfig from './components/FormConfig';
+import getFormConfig from './components/FormConfig';
 import { gridHeaders, gridActions } from './components/GridConfig';
 import { handleFormSubmit } from './utils/handlers';
 import LanguageSwitcher from "../../../../components/LanguageSwitcher";
@@ -53,7 +53,7 @@ export default function DemoHomePage({ params }: { params: Promise<{ locale: str
                 onClose={() => setEditDialogOpen(false)}
             />
             <h1>{t("title")}</h1>
-            <Form fields={formConfig} onSubmit={(values) => handleFormSubmit(values, data, setData)} />
+            <Form fields={getFormConfig(t)} onSubmit={(values) => handleFormSubmit(values, data, setData)} />
             <Grid
                 headers={gridHeaders.concat(gridActions(handleOpenEditDialog, handleOpenDeleteDialog))}
                 data={data}
