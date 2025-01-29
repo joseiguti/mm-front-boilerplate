@@ -1,32 +1,22 @@
 import React from 'react';
-import { Dialog, Notifications } from 'web-monorepo-ui-components';
+import { Dialog } from 'web-monorepo-ui-components';
+import { handleDeleteProduct } from '../utils/handlers';
 
 export const DeleteDialog = ({ isOpen, onClose, selectedProduct, setData }) => {
-    const handleDelete = () => {
-        setData((prevData) => prevData.filter((item) => item.id !== selectedProduct.id));
-        Notifications({
-            message: `${selectedProduct.name} deleted successfully`,
-            type: 'success',
-            duration: 5000,
-            position: 'top-right',
-        }).notify();
-        onClose();
-    };
-
     const dialogButtons = [
         {
-            label: 'Cancel',
-            iconName: 'RiChatDeleteLine',
-            size: 'sm',
-            theme: { colors: { buttonBg: 'red.500', buttonText: 'white' } },
+            label: "Cancel",
+            iconName: "RiChatDeleteLine",
+            size: "sm",
+            theme: { colors: { buttonBg: "red.500", buttonText: "white" } },
             onClick: onClose,
         },
         {
-            label: 'Yes',
-            iconName: 'RiChatCheckLine',
-            size: 'sm',
-            theme: { colors: { buttonBg: 'green.500', buttonText: 'white' } },
-            onClick: handleDelete,
+            label: "Yes",
+            iconName: "RiChatCheckLine",
+            size: "sm",
+            theme: { colors: { buttonBg: "green.500", buttonText: "white" } },
+            onClick: () => handleDeleteProduct(selectedProduct, setData, onClose),
         },
     ];
 
@@ -34,7 +24,7 @@ export const DeleteDialog = ({ isOpen, onClose, selectedProduct, setData }) => {
         <Dialog
             isOpen={isOpen}
             onClose={onClose}
-            title="Delete product"
+            title="Delete Product"
             body={<p>Are you sure you want to delete {selectedProduct?.name}?</p>}
             buttons={dialogButtons}
         />
