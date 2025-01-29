@@ -10,5 +10,10 @@
     "emailRequired": "Email is required",
     "emailInvalid": "Invalid email address",
     "submitButton": "Submit"
+  },
+  "DemoHomePage": {
+    "title": "Products",
+    "fieldName": "Name",
+    "fieldCategory": "Category"
   }
 }

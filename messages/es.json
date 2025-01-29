@@ -10,5 +10,10 @@
     "emailRequired": "El correo electrónico es obligatorio",
     "emailInvalid": "Dirección de correo no válida",
     "submitButton": "Enviar"
+  },
+  "DemoHomePage": {
+    "title": "Productos",
+    "fieldName": "Nombre",
+    "fieldCategory": "Categoría"
   }
 }

@@ -12,7 +12,7 @@ const LanguageSwitcher = ({ currentLocale }: { currentLocale: string }) => {
   };
 
   return (
-    <div>
+    <div style={{ paddingBottom: "10px" }}>
       <a
         onClick={() => changeLanguage("en")}
         style={{ cursor: "pointer", marginRight: "5px" }}
