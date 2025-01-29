@@ -15,7 +15,7 @@ const gridHeaders = [
     },
 ];
 
-const gridActions = (handleOpenEditDialog, handleOpenDeleteDialog) => ({
+const gridActions = (handleOpenEditDialog: () => void, handleOpenDeleteDialog: (product: React.SetStateAction<null>) => void) => ({
     label: 'Actions',
     key: 'actions',
     textAlign: 'end',

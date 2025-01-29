@@ -1,7 +1,11 @@
-import { Notifications } from 'web-monorepo-ui-components';
+import { SetStateAction } from 'react';
+import {Notifications} from 'web-monorepo-ui-components';
 
-export const handleDeleteProduct = (selectedProduct, setData, onClose) => {
-    setData((prevData) => prevData.filter((item) => item.id !== selectedProduct.id));
+export const handleDeleteProduct = (selectedProduct: {
+    id: any;
+    name: any;
+}, setData: (arg0: (prevData: any[]) => any[]) => void, onClose: () => void) => {
+    setData((prevData: any[]) => prevData.filter((item) => item.id !== selectedProduct.id));
 
     Notifications({
         message: `${selectedProduct.name} deleted successfully`,
@@ -13,7 +17,7 @@ export const handleDeleteProduct = (selectedProduct, setData, onClose) => {
     onClose();
 };
 
-export const handleFormSubmit = (values, data, setData) => {
+export const handleFormSubmit = (values: { product: any; category: any; }, data: any[], setData: { (value: SetStateAction<{ id: number; name: string; category: string; }[]>): void; (arg0: any[]): void; }) => {
     const newId = data.length > 0 ? Math.max(...data.map((item) => item.id)) + 1 : 1;
     const newProduct = {
         id: newId,

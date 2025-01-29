@@ -26,7 +26,7 @@ export default function DemoHomePage({ params }: { params: Promise<{ locale: str
         });
     }, [params]);
 
-    const handleOpenDeleteDialog = (product) => {
+    const handleOpenDeleteDialog = (product: React.SetStateAction<null>) => {
         setSelectedProduct(product);
         setDeleteDialogOpen(true);
     };
@@ -53,7 +53,7 @@ export default function DemoHomePage({ params }: { params: Promise<{ locale: str
                 onClose={() => setEditDialogOpen(false)}
             />
             <h1>{t("title")}</h1>
-            <Form fields={getFormConfig(t)} onSubmit={(values) => handleFormSubmit(values, data, setData)} />
+            <Form fields={getFormConfig(t)} onSubmit={(values: { product: any; category: any; }) => handleFormSubmit(values, data, setData)} />
             <Grid
                 headers={gridHeaders.concat(gridActions(handleOpenEditDialog, handleOpenDeleteDialog))}
                 data={data}
