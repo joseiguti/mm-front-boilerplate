@@ -1,12 +1,23 @@
 import React from "react";
 
-import PropTypes from "prop-types";
-import { Dialog } from "web-monorepo-ui-components";
+import {Dialog, DialogButton} from "web-monorepo-ui-components";
+import {Product} from "@/app/[locale]/demo/home/utils/types";
 
-import { handleDeleteProduct } from "../utils/handlers";
 
-export const DeleteDialog = ({ isOpen, onClose, selectedProduct, setData }) => {
-  const dialogButtons = [
+interface DeleteDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+  selectedProduct: Product | null;
+  setData: React.Dispatch<React.SetStateAction<Product[]>>;
+}
+
+export const DeleteDialog: React.FC<DeleteDialogProps> = ({
+  isOpen,
+  onClose,
+  selectedProduct,
+  setData,
+}) => {
+  const dialogButtons: DialogButton[] = [
     {
       label: "Cancel",
       iconName: "RiChatDeleteLine",
@@ -19,7 +30,12 @@ export const DeleteDialog = ({ isOpen, onClose, selectedProduct, setData }) => {
       iconName: "RiChatCheckLine",
       size: "sm",
       theme: { colors: { buttonBg: "green.500", buttonText: "white" } },
-      onClick: () => handleDeleteProduct(selectedProduct, setData, onClose),
+      onClick: () => {
+        if (selectedProduct) {
+          setData((prev) => prev.filter((p) => p.id !== selectedProduct.id));
+          onClose();
+        }
+      },
     },
   ];
 
@@ -28,54 +44,33 @@ export const DeleteDialog = ({ isOpen, onClose, selectedProduct, setData }) => {
       isOpen={isOpen}
       onClose={onClose}
       title="Delete Product"
-      body={
-        <p>
-          Are you sure you want to delete{" "}
-          {selectedProduct?.name ? selectedProduct.name : "this product"}?
-        </p>
-      }
+      body={<p>Are you sure you want to delete {selectedProduct?.name}?</p>}
       buttons={dialogButtons}
     />
   );
 };
 
-DeleteDialog.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  selectedProduct: PropTypes.shape({
-    id: PropTypes.number,
-    name: PropTypes.string,
-    category: PropTypes.string,
-  }),
-  setData: PropTypes.func.isRequired,
-};
+interface EditDialogProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
 
-export const EditDialog = ({ isOpen, onClose }) => {
-  const dialogButtons = [
-    {
-      label: "Close",
-      iconName: "RiCloseLine",
-      size: "sm",
-      theme: { colors: { buttonBg: "gray.500", buttonText: "white" } },
-      onClick: onClose,
-    },
-  ];
-
+export const EditDialog: React.FC<EditDialogProps> = ({ isOpen, onClose }) => {
   return (
     <Dialog
       isOpen={isOpen}
       onClose={onClose}
       title="Edit Product"
       body={<p>This option is not implemented yet.</p>}
-      buttons={dialogButtons}
+      buttons={[
+        {
+          label: "Close",
+          iconName: "RiCloseLine",
+          size: "sm",
+          theme: { colors: { buttonBg: "gray.500", buttonText: "white" } },
+          onClick: onClose,
+        },
+      ]}
     />
   );
 };
-
-EditDialog.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-};
-
-const DialogComponents = { DeleteDialog, EditDialog };
-export default DialogComponents;

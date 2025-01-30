@@ -1,3 +1,5 @@
+import {Product} from "@/app/[locale]/demo/home/utils/types";
+
 const gridHeaders = [
   {
     label: "Product",
@@ -16,8 +18,8 @@ const gridHeaders = [
 ];
 
 const gridActions = (
-  handleOpenEditDialog: () => void,
-  handleOpenDeleteDialog: (product: React.SetStateAction<null>) => void,
+    handleOpenEditDialog: () => void,
+    handleOpenDeleteDialog: (product: (Product | null)) => void,
 ) => ({
   label: "Actions",
   key: "actions",
