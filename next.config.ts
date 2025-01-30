@@ -2,8 +2,7 @@ import withNextIntl from "next-intl/plugin";
 
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-  },
+  experimental: {},
 };
 
 export default withNextIntl()(nextConfig);
