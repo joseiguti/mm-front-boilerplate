@@ -14,12 +14,14 @@ export const handleDeleteProduct = (
     prevData.filter((item) => item.id !== selectedProduct.id),
   );
 
-  Notifications({
-    message: `${selectedProduct.name} deleted successfully`,
+  const notificationInstance = Notifications({
+    message: `${selectedProduct?.name ?? "Product"} deleted successfully`,
     type: "success",
     duration: 5000,
     position: "top-right",
-  }).notify();
+  });
+
+  notificationInstance.notify();
 
   onClose();
 };

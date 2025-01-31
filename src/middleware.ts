@@ -10,18 +10,22 @@ export default async function middleware(request: Request) {
     return NextResponse.next();
   }
 
-  const localeFromPath = url.pathname.split("/")[1];
+  const localeFromPath = url.pathname.split("/")[1] as "en" | "es" | undefined;
 
-  if (locales.includes(localeFromPath)) {
+  if (localeFromPath && locales.includes(localeFromPath)) {
     return NextResponse.next();
   }
 
   const acceptLanguage = request.headers.get("accept-language");
-  const browserLocale = acceptLanguage?.split(",")[0]?.split("-")[0];
+  const browserLocale = acceptLanguage?.split(",")[0]?.split("-")[0] as
+    | "en"
+    | "es"
+    | undefined;
 
-  const finalLocale = locales.includes(browserLocale)
-    ? browserLocale
-    : defaultLocale;
+  const finalLocale =
+    browserLocale && locales.includes(browserLocale)
+      ? browserLocale
+      : defaultLocale;
 
   return NextResponse.redirect(
     new URL(`/${finalLocale}${url.pathname}`, request.url),

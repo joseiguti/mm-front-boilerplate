@@ -1,8 +1,8 @@
 import React from "react";
 
-import {Dialog, DialogButton} from "web-monorepo-ui-components";
-import {Product} from "@/app/[locale]/demo/home/utils/types";
+import { Dialog } from "web-monorepo-ui-components";
 
+import { Product } from "@/app/[locale]/demo/home/utils/types";
 
 interface DeleteDialogProps {
   isOpen: boolean;
@@ -17,35 +17,35 @@ export const DeleteDialog: React.FC<DeleteDialogProps> = ({
   selectedProduct,
   setData,
 }) => {
-  const dialogButtons: DialogButton[] = [
-    {
-      label: "Cancel",
-      iconName: "RiChatDeleteLine",
-      size: "sm",
-      theme: { colors: { buttonBg: "red.500", buttonText: "white" } },
-      onClick: onClose,
-    },
-    {
-      label: "Yes",
-      iconName: "RiChatCheckLine",
-      size: "sm",
-      theme: { colors: { buttonBg: "green.500", buttonText: "white" } },
-      onClick: () => {
-        if (selectedProduct) {
-          setData((prev) => prev.filter((p) => p.id !== selectedProduct.id));
-          onClose();
-        }
-      },
-    },
-  ];
-
   return (
     <Dialog
       isOpen={isOpen}
       onClose={onClose}
       title="Delete Product"
       body={<p>Are you sure you want to delete {selectedProduct?.name}?</p>}
-      buttons={dialogButtons}
+      buttons={[
+        {
+          label: "Cancel",
+          iconName: "RiChatDeleteLine",
+          size: "sm",
+          theme: { colors: { buttonBg: "red.500", buttonText: "white" } },
+          onClick: onClose,
+        },
+        {
+          label: "Yes",
+          iconName: "RiChatCheckLine",
+          size: "sm",
+          theme: { colors: { buttonBg: "green.500", buttonText: "white" } },
+          onClick: () => {
+            if (selectedProduct) {
+              setData((prev) =>
+                prev.filter((p) => p.id !== selectedProduct.id),
+              );
+              onClose();
+            }
+          },
+        },
+      ]}
     />
   );
 };

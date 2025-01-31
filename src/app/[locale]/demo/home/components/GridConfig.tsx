@@ -1,4 +1,4 @@
-import {Product} from "@/app/[locale]/demo/home/utils/types";
+import { Product } from "@/app/[locale]/demo/home/utils/types";
 
 const gridHeaders = [
   {
@@ -18,8 +18,8 @@ const gridHeaders = [
 ];
 
 const gridActions = (
-    handleOpenEditDialog: () => void,
-    handleOpenDeleteDialog: (product: (Product | null)) => void,
+  handleOpenEditDialog: () => void,
+  handleOpenDeleteDialog: (product: Product | null) => void,
 ) => ({
   label: "Actions",
   key: "actions",
