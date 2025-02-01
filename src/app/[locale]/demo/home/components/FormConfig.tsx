@@ -1,3 +1,5 @@
+import { RiCloseLine, RiSave3Line } from "react-icons/ri";
+
 export default function getFormConfig(t: (key: string) => string) {
   return [
     [
@@ -28,13 +30,13 @@ export default function getFormConfig(t: (key: string) => string) {
     {
       type: "button",
       label: "Save",
-      iconName: "RiSave3Line",
+      icon: <RiSave3Line />,
       isSubmit: true,
     },
     {
       type: "button",
       label: "Cancel",
-      iconName: "RiCloseLine",
+      icon: <RiCloseLine />,
       theme: {
         colors: {
           buttonBg: "red.500",

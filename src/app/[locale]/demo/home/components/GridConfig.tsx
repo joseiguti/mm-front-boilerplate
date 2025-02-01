@@ -1,3 +1,5 @@
+import { RiDeleteBinLine, RiEditLine } from "react-icons/ri";
+
 import { Product } from "@/app/[locale]/demo/home/utils/types";
 
 const gridHeaders = [
@@ -28,11 +30,11 @@ const gridActions = (
   buttons: [
     {
       label: "Edit",
-      iconName: "RiEditLine",
+      icon: <RiEditLine />,
       onClick: handleOpenEditDialog,
     },
     {
-      iconName: "RiDeleteBinLine",
+      icon: <RiDeleteBinLine />,
       theme: { colors: { buttonBg: "red.500", buttonText: "white" } },
       onClick: handleOpenDeleteDialog,
     },

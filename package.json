@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "next dev",
     "build:analyze": "ANALYZE=true next build",
+    "analyze": "ANALYZE=true npm run build",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -34,10 +35,11 @@
     "react-icons": "^5.4.0",
     "styled-components": "^6.1.14",
     "toastify-js": "^1.12.0",
-    "web-monorepo-ui-components": "1.0.36"
+    "web-monorepo-ui-components": "1.0.45"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.2.0",
+    "@next/bundle-analyzer": "^15.1.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

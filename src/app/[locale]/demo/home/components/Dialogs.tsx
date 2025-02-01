@@ -1,5 +1,6 @@
 import React from "react";
 
+import { RiChatCheckLine, RiChatDeleteLine, RiCloseLine } from "react-icons/ri";
 import { Dialog } from "web-monorepo-ui-components";
 
 import { Product } from "@/app/[locale]/demo/home/utils/types";
@@ -26,14 +27,14 @@ export const DeleteDialog: React.FC<DeleteDialogProps> = ({
       buttons={[
         {
           label: "Cancel",
-          iconName: "RiChatDeleteLine",
+          icon: <RiChatDeleteLine />,
           size: "sm",
           theme: { colors: { buttonBg: "red.500", buttonText: "white" } },
           onClick: onClose,
         },
         {
           label: "Yes",
-          iconName: "RiChatCheckLine",
+          icon: <RiChatCheckLine />,
           size: "sm",
           theme: { colors: { buttonBg: "green.500", buttonText: "white" } },
           onClick: () => {
@@ -65,7 +66,7 @@ export const EditDialog: React.FC<EditDialogProps> = ({ isOpen, onClose }) => {
       buttons={[
         {
           label: "Close",
-          iconName: "RiCloseLine",
+          icon: <RiCloseLine />,
           size: "sm",
           theme: { colors: { buttonBg: "gray.500", buttonText: "white" } },
           onClick: onClose,
