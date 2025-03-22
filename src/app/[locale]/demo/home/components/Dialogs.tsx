@@ -1,7 +1,7 @@
 import React from "react";
 
 import { RiChatCheckLine, RiChatDeleteLine, RiCloseLine } from "react-icons/ri";
-import { Dialog } from "web-monorepo-ui-components";
+import { Dialog } from "mm-front-components";
 
 import { Product } from "@/app/[locale]/demo/home/utils/types";
 

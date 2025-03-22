@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 
 import { useTranslations } from "next-intl";
-import { Form, Grid } from "web-monorepo-ui-components";
+import { Form, Grid } from "mm-front-components";
 
 import { Product } from "@/app/[locale]/demo/home/utils/types";
 
@@ -79,7 +79,6 @@ export default function DemoHomePage({
         enableSorting={true}
         itemsPerPage={5}
       />
-      ;
     </div>
   );
 }

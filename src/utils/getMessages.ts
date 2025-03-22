@@ -4,7 +4,7 @@ export async function getMessages(lang: string) {
   } catch (error) {
     if (process.env.NODE_ENV === "development") {
       // eslint-disable-next-line no-console
-      console.error("Error al cargar mensajes:", error);
+      console.error("Error loading messages:", error);
     }
     return {};
   }

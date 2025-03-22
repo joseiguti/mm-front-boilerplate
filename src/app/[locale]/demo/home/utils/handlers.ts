@@ -1,6 +1,6 @@
 import { SetStateAction } from "react";
 
-import { Notifications } from "web-monorepo-ui-components";
+import { Notifications } from "mm-front-components";
 
 export const handleDeleteProduct = (
   selectedProduct: {

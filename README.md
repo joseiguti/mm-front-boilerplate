@@ -1,4 +1,24 @@
-# **Next.js Styled Boilerplate - Resumen del Proyecto**
+# **Next.js mm-front-components Boilerplate**
+
+Este proyecto es un **boilerplate base para integrar la librería [mm-front-components](https://www.npmjs.com/package/mm-front-components)** en aplicaciones Next.js.
+
+Incluye una configuración completa y un **demo funcional de los componentes** listos para usarse y personalizarse según las necesidades del proyecto.
+
+Si prefieres empezar más rápido, puedes clonar directamente este repositorio:  
+👉 [https://github.com/joseiguti/mm-front-boilerplate](https://github.com/joseiguti/mm-front-boilerplate)
+
+---
+
+## Capturas de pantalla
+
+Aquí puedes ver cómo luce el proyecto al ejecutarlo por primera vez:
+
+**1. Incluye la mayoria de componentes trabajando**  
+![Screenshot 3](./screenshots/demo_c.png)
+
+> Reemplaza las imágenes por las que desees en el directorio `./screenshots`.
+
+---
 
 ## **Framework principal**
 

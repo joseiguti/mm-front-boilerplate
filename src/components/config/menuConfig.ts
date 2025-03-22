@@ -1,14 +1,11 @@
+import { FaHome } from 'react-icons/fa';
+
 export const menuConfig = {
-  logo: "/logo.jpg",
+  logo: "/next.svg",
   items: [
     {
-      label: "First Demo",
-      icon: "HomeIcon",
-      link: "/demo/form",
-    },
-    {
-      label: "Components Demo",
-      icon: "HomeIcon",
+      label: "Clients",
+      icon: FaHome,
       link: "/demo/home",
     },
   ],

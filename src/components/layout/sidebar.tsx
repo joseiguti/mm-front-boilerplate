@@ -1,6 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
+
 import Link from "next/link";
-import { Menu } from "web-monorepo-ui-components";
+import { Menu } from "mm-front-components";
 
 import { menuConfig } from "@/components/config/menuConfig";
 import { theme } from "@/styles/theme";
@@ -10,7 +11,12 @@ interface SidebarProps {
     toggleMenu: () => void;
 }
 
-const CustomLink = ({ href, children }) => (
+interface CustomLinkProps {
+    href: string;
+    children: ReactNode;
+}
+
+const CustomLink = ({ href, children }: CustomLinkProps) => (
     <Link href={href} passHref legacyBehavior>
         {children}
     </Link>

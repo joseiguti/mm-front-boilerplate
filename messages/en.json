@@ -1,15 +1,6 @@
 {
   "Home": {
-    "title": "web-front-next-styled-boilerplate Demo"
-  },
-  "DemoForm": {
-    "title": "Demo Form",
-    "nameLabel": "Name",
-    "nameRequired": "Name is required",
-    "emailLabel": "Email",
-    "emailRequired": "Email is required",
-    "emailInvalid": "Invalid email address",
-    "submitButton": "Submit"
+    "title": "mm-front-components Demo"
   },
   "DemoHomePage": {
     "title": "Products",
