@@ -49,12 +49,6 @@ Aquí puedes ver cómo luce el proyecto al ejecutarlo por primera vez:
 
 ---
 
-## **Gestión de formularios**
-
-- **react-hook-form (7.53.2)**:
-  - Manejo eficiente y ligero de formularios.
-
----
 
 ## **Tipado estático**
 
