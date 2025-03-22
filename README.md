@@ -16,7 +16,6 @@ Aquí puedes ver cómo luce el proyecto al ejecutarlo por primera vez:
 **1. Incluye la mayoria de componentes trabajando**  
 ![Screenshot 3](./screenshots/demo_c.png)
 
-> Reemplaza las imágenes por las que desees en el directorio `./screenshots`.
 
 ---
 
